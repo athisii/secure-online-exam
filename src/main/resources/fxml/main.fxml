@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.cdac.secureonlineexam.MainController">
+    <top>
+        <HBox alignment="CENTER" styleClass="padding-small, border-color-darkblue">
+            <VBox styleClass="padding, border-color-darkblue">
+                <HBox>
+                    <Label text="Name" minWidth="${_noOfQuestionLabel1.width}"/>
+                    <Label text=" : "/>
+                    <Label text="${controller.name}" styleClass="text-darkblue"/>
+                </HBox>
+                <HBox>
+                    <Label text="Paper Name" minWidth="${_noOfQuestionLabel1.width}"/>
+                    <Label text=" : "/>
+                    <Label text="${controller.paperName}" styleClass="text-darkblue"/>
+                </HBox>
+                <HBox>
+                    <Label text="Hall Ticket No" minWidth="${_noOfQuestionLabel1.width}"/>
+                    <Label text=" : "/>
+                    <Label text="${controller.hallTicketNo}" styleClass="text-darkblue"/>
+                </HBox>
+            </VBox>
+            <VBox alignment="CENTER_RIGHT" fx:id="_imgContainerMedium"
+                  styleClass="img-container-medium, padding" HBox.hgrow="ALWAYS">
+                <ImageView fx:id="photoImageView" fitWidth="${_imgContainerMedium.prefWidth}"
+                           fitHeight="${_imgContainerMedium.prefHeight}"
+                           preserveRatio="true">
+                    <Image url="@../img/profile.png"/>
+                </ImageView>
+            </VBox>
+            <VBox alignment="CENTER_RIGHT" styleClass="padding">
+                <HBox>
+                    <Label fx:id="_noOfQuestionLabel1" text="No. Of Questions"/>
+                    <Label text=" : "/>
+                    <Label text="${controller.noOfQuestion}"
+                           styleClass="text-darkblue"/>
+                </HBox>
+                <HBox>
+                    <Label text="Remaining Time" minWidth="${_noOfQuestionLabel1.width}"/>
+                    <Label text=" : "/>
+                    <Label fx:id="remainingTimeLabel" styleClass="text-darkblue"/>
+                </HBox>
+            </VBox>
+
+        </HBox>
+    </top>
+    <center>
+        <HBox fx:id="mainContentHBox" alignment="CENTER">
+            <HBox alignment="CENTER" styleClass="padding">
+                <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER">
+                    <VBox fx:id="vBoxContent" alignment="BASELINE_CENTER"
+                          styleClass="padding-lr-medium, border-color-darkblue"/>
+                </ScrollPane>
+            </HBox>
+            <fx:define>
+                <HBox fx:id="hiddenQrCodeHBox" alignment="CENTER_LEFT">
+                    <HBox alignment="CENTER_RIGHT" fx:id="_imgContainerMedium1"
+                          styleClass="img-container-xlarge, padding-medium" HBox.hgrow="ALWAYS">
+                        <ImageView fx:id="qrCodeImageView" fitWidth="${_imgContainerMedium1.prefWidth}"
+                                   fitHeight="${_imgContainerMedium1.prefHeight}"
+                                   preserveRatio="true">
+                        </ImageView>
+                    </HBox>
+                </HBox>
+            </fx:define>
+
+        </HBox>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER" styleClass="img-container, padding, border-color-darkblue">
+            <Button fx:id="submitBtn" styleClass="btn-medium, press-effect" text="SUBMIT"/>
+            <Region styleClass="min-width-small"/>
+            <Button fx:id="generateQrCodeBtn" styleClass="btn-medium, press-effect" text="GENERATE QR CODE"
+                    disable="true"/>
+        </HBox>
+    </bottom>
+</BorderPane>
