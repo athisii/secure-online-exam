@@ -5,31 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a24d00cd-f6be-40ae-bdcf-5e7134ba3417" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/opencv-3413.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cdac/secureonlineexam/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cdac/secureonlineexam/GenericException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cdac/secureonlineexam/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cdac/secureonlineexam/QrCodeUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cdac/secureonlineexam/QrScanController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/main.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/starter.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/gif/qr_code_anim.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/cdac_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/profile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/qr_code.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/libopencv_java3413.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/style/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/9/390c0112ff122827867a80a6a9c9eb6e20eae1b1" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/9/390c0112ff122827867a80a6a9c9eb6e20eae1b1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/a/4a0bc20cc402b5a1fba918b13cbf1bc1fa3f3178" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/b/7b7c283e7e9f0d5dc71677660b9085df3f61b4b9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/5/a52a7f8a4c2ab2b92904b7dea4fa05aa25363204" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/a/4a0bc20cc402b5a1fba918b13cbf1bc1fa3f3178" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/b/7b7c283e7e9f0d5dc71677660b9085df3f61b4b9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/5/a52a7f8a4c2ab2b92904b7dea4fa05aa25363204" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/soe-10-5-2024-19:35.log.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/soe-10-5-2024-19:36.log.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/response/mr__rajesh_kumar-MO2402CDH255TMC1022-qrcode.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/response/mr__rajesh_kumar-MO2402CDH255TMC1022.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cdac/secureonlineexam/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cdac/secureonlineexam/MainController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,19 +48,7 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="secure-online-exam" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="secure-online-exam" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="application" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="secure-online-exam" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
+                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
               </path>
             </expand>
             <select />
@@ -100,40 +79,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Download Sources.executor": "Run",
-    "Gradle.Upgrade Gradle wrapper.executor": "Run",
-    "Gradle.secure-online-exam [:App.main()].executor": "Run",
-    "Gradle.secure-online-exam [buildDependents].executor": "Run",
-    "Gradle.secure-online-exam [buildNeeded].executor": "Run",
-    "Gradle.secure-online-exam [clean].executor": "Run",
-    "Gradle.secure-online-exam [copyDependencies].executor": "Run",
-    "Gradle.secure-online-exam [distTar].executor": "Run",
-    "Gradle.secure-online-exam [installDist].executor": "Run",
-    "Gradle.secure-online-exam [jar].executor": "Run",
-    "Gradle.secure-online-exam [jlink].executor": "Run",
-    "Gradle.secure-online-exam [jpackage].executor": "Run",
-    "Gradle.secure-online-exam [runShadow].executor": "Run",
-    "Gradle.secure-online-exam [run].executor": "Run",
-    "Java Scratch.Test.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/athisii/Desktop/cdac/project/secure-online-exam/src/main/resources/img",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.3486911",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Upgrade Gradle wrapper.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.secure-online-exam [:App.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.secure-online-exam [:Test.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.secure-online-exam [buildDependents].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.secure-online-exam [buildNeeded].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.secure-online-exam [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.secure-online-exam [copyDependencies].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.secure-online-exam [distTar].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.secure-online-exam [installDist].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.secure-online-exam [jar].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.secure-online-exam [jlink].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.secure-online-exam [jpackage].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.secure-online-exam [runShadow].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.secure-online-exam [run].executor&quot;: &quot;Run&quot;,
+    &quot;Java Scratch.Test.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/athisii/Desktop/cdac/project/secure-online-exam/src/main/resources/img&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.3486911&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/img" />
@@ -155,12 +135,25 @@
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="gradle run" />
       <command value="gradle jar" />
+      <command value="gradle run" />
       <command value="gradle clean" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.secure-online-exam [clean]">
+  <component name="RunManager" selected="Gradle.secure-online-exam [run]">
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.cdac.secureonlineexam.Test" />
+      <module name="secure-online-exam.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cdac.secureonlineexam.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="secure-online-exam [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -229,9 +222,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.secure-online-exam [run]" />
-        <item itemvalue="Gradle.secure-online-exam [jar]" />
         <item itemvalue="Gradle.secure-online-exam [clean]" />
+        <item itemvalue="Gradle.secure-online-exam [run]" />
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Gradle.secure-online-exam [jar]" />
       </list>
     </recent_temporary>
   </component>
@@ -253,7 +247,9 @@
       <workItem from="1715249605957" duration="615000" />
       <workItem from="1715250276668" duration="7037000" />
       <workItem from="1715266890600" duration="12766000" />
-      <workItem from="1715280739015" duration="350000" />
+      <workItem from="1715280739015" duration="703000" />
+      <workItem from="1715334723520" duration="12926000" />
+      <workItem from="1715351172765" duration="705000" />
     </task>
     <servers />
   </component>

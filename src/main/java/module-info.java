@@ -4,6 +4,8 @@ module com.cdac.secureonlineexam {
 
     requires javafx.controls;
     requires javafx.fxml;
+
+    // for reading and writing qr code
     requires com.google.zxing;
     requires com.google.zxing.javase;
 

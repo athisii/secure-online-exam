@@ -19,6 +19,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author athisii
@@ -27,6 +29,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 
 public class QrScanController {
+    private static final Logger LOGGER = ApplicationLog.getLogger(QrScanController.class);
     private static final int COUNTDOWN_IN_SEC = 2;
     private static final AtomicInteger COUNTDOWN = new AtomicInteger(COUNTDOWN_IN_SEC);
 
@@ -67,7 +70,8 @@ public class QrScanController {
             // active status to be used by worker thread
             videoCapture = new VideoCapture(App.getCameraId());
             if (!videoCapture.isOpened()) {
-                messageLabel.setText("UNABLE TO START CAMERA. PLEASE CHECK CAMERA AND TRY AGAIN.");
+                LOGGER.log(Level.SEVERE, () -> "**Unable to start camera for index: " + App.getCameraId());
+                messageLabel.setText("UNABLE TO START CAMERA. PLEASE CHECK CAMERA AND RESTART THE APP AGAIN.");
                 return;
             }
             isCameraActive = true;
@@ -147,7 +151,7 @@ public class QrScanController {
         if (!qrCodeText.isBlank()) {
             try {
                 App.extractQrCodeAndPutToMap(qrCodeText);
-                System.out.println("**Found a valid QR Code.\n***Shutting down the camera....\n");
+                LOGGER.log(Level.INFO, "**Found a valid QR Code.\n***Shutting down the camera....");
                 startStopCameraBtn.setDisable(true);
                 // if reached here, then valid image is captured
                 stopLive = true;
@@ -157,10 +161,12 @@ public class QrScanController {
                 isCameraActive = false;
                 shutdownExecutorServiceAndReleaseResource();
                 // change view
-                System.out.println("**Going to next screen...");
+                LOGGER.log(Level.INFO, "**Going to next screen...");
                 App.setRoot("main");
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
+            } catch (GenericException ex) {
+                LOGGER.log(Level.SEVERE, ex.getMessage(), ex);
             } catch (Exception ignored) {
                 // ignore and continue until valid data is read.
                 // "Unable to extract data from QR Code"
@@ -187,6 +193,7 @@ public class QrScanController {
                     isCameraActive = false;
                 }
             } catch (Exception ex) {
+                LOGGER.log(Level.SEVERE, "**Unable to close the camera.", ex);
                 Platform.runLater(() -> messageLabel.setText("Unable to close the camera."));
             }
         }

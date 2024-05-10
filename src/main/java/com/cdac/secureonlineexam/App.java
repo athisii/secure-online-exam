@@ -19,6 +19,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author athisii
@@ -27,6 +29,7 @@ import java.util.concurrent.Executors;
  */
 
 public class App extends Application {
+    private static final Logger LOGGER = ApplicationLog.getLogger(App.class);
     private static final int NUMBER_OF_FIELD_REQUIRED = 5;
     private static final int NUMBER_OF_CHAR_FOR_HT = 19;
     public static final int COUNTDOWN_IN_MIN = 90;
@@ -49,26 +52,24 @@ public class App extends Application {
         dataErrorIndexMap.put(NO_OF_QUESTION_INDEX, "No. Of Question");
         dataErrorIndexMap.put(NO_OF_ANSWER_CHOICE_INDEX, "No. Of Answer Choice");
         dataErrorIndexMap.put(PAPER_NAME_INDEX, "Paper Name");
-
-        extractQrCodeAndPutToMap("AV2312CHE402GDBA209|Grace Johnson|100|5|AA");
+//        extractQrCodeAndPutToMap("AV2312CHE402GDBA209|Grace Johnson|100|4|AA");
     }
 
     private static final ExecutorService executorService = Executors.newFixedThreadPool(2);
-
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("starter"), 1366, 768);
         stage.setTitle("Secure Online Exam");
-        stage.setScene(scene);
         stage.setResizable(false);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource(getCssFileName())).toExternalForm());
+        stage.setScene(scene);
 //        stage.initStyle(StageStyle.UNDECORATED);
         stage.setOnCloseRequest(event -> {
             event.consume();
             Platform.exit();  //Comment this line in production/deployment (Alt+f4 and close button)
-            System.exit(0);
+            System.exit(0); //Comment this line in production/deployment (Alt+f4 and close button)
         });
         stage.show();
     }
@@ -84,13 +85,13 @@ public class App extends Application {
         if (jarFileName.isBlank()) {
             System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         } else {
-            loadNativeLibraryFromJar(jarFileName, "libopencv_java3413.so");
+            loadNativeLibraryFromJar("libopencv_java3413.so");
         }
         try {
             cameraId = Integer.parseInt(args[0].trim());
         } catch (Exception ignored) {
+            // the use the default one.
         }
-
         launch();
     }
 
@@ -103,20 +104,25 @@ public class App extends Application {
         dataMap.clear();
         String[] splitData = qrCodeText.split("\\|");
         if (splitData.length != NUMBER_OF_FIELD_REQUIRED) {
+            LOGGER.log(Level.SEVERE, "Invalid QR code. Expected " + NUMBER_OF_FIELD_REQUIRED + " fields in the QR code");
             throw new GenericException("Invalid QR code. Expected " + NUMBER_OF_FIELD_REQUIRED + " fields in the QR code");
         }
         if (splitData[0].length() != NUMBER_OF_CHAR_FOR_HT) {
+            LOGGER.log(Level.SEVERE, "Invalid Hall Ticket character count. Must be " + NUMBER_OF_CHAR_FOR_HT);
             throw new GenericException("Invalid Hall Ticket character count. Must be " + NUMBER_OF_CHAR_FOR_HT);
         }
         for (int i = 0; i < splitData.length; i++) {
             if (splitData[i].isBlank()) {
+                LOGGER.log(Level.SEVERE, "'{}' field is blank.", dataErrorIndexMap.get(i));
                 throw new GenericException("'" + dataErrorIndexMap.get(i) + "' field is blank.");
             }
 
             if (i == NO_OF_QUESTION_INDEX && Integer.parseInt(splitData[i].trim()) <= 0) {
+                LOGGER.log(Level.SEVERE, "'{}' value is less than or equal to 0.", dataErrorIndexMap.get(i));
                 throw new GenericException("'" + dataErrorIndexMap.get(i) + "' value is less than or equal to 0.");
             }
             if (i == NO_OF_ANSWER_CHOICE_INDEX && Integer.parseInt(splitData[i].trim()) <= 0) {
+                LOGGER.log(Level.SEVERE, "'{}' value is less than or equal to 0.", dataErrorIndexMap.get(i));
                 throw new GenericException("'" + dataErrorIndexMap.get(i) + "' value is less than or equal to 0.");
             }
             dataMap.put(i, splitData[i]);
@@ -144,7 +150,7 @@ public class App extends Application {
         return executorService;
     }
 
-    private static void loadNativeLibraryFromJar(String jarFileName, String libName) throws IOException {
+    private static void loadNativeLibraryFromJar(String libName) throws IOException {
         // Load the .so file from the JAR into a temporary directory
         try (InputStream inputStream = App.class.getResourceAsStream("/" + libName)) {
             if (inputStream == null) {

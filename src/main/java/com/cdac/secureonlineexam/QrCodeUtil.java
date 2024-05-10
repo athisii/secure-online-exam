@@ -12,6 +12,8 @@ import java.io.ByteArrayOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author athisii
@@ -20,6 +22,7 @@ import java.nio.file.Path;
  */
 
 public class QrCodeUtil {
+    private static final Logger LOGGER = ApplicationLog.getLogger(QrCodeUtil.class);
 
     private QrCodeUtil() {
 
@@ -38,9 +41,10 @@ public class QrCodeUtil {
             BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
             Files.delete(path);
             return reader.decode(bitmap).getText();
-        } catch (Exception ignored) {
-            System.out.println("**No qr code found in the captured image.\n***Going for next the shot....\n");
-            // qr not found in image
+        } catch (Exception ex) {
+            LOGGER.log(Level.SEVERE, ex.getMessage(), ex);
+            LOGGER.log(Level.INFO, "**No qr code found in the captured image.\n***Going for next the shot....");
+            // qr code not found in the image
         }
         return "";
     }
@@ -53,7 +57,7 @@ public class QrCodeUtil {
             MatrixToImageWriter.writeToStream(matrix, "jpeg", byteArrayOutputStream);
             return byteArrayOutputStream.toByteArray();
         } catch (Exception ex) {
-            System.out.println("**Exception: " + ex);
+            LOGGER.log(Level.SEVERE, "**Error creating QR Code: ", ex);
             throw new GenericException("Error creating QR code.");
         }
     }

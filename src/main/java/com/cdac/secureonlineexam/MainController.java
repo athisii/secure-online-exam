@@ -19,6 +19,8 @@ import java.nio.file.Paths;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author athisii
@@ -27,6 +29,7 @@ import java.util.Map;
  */
 
 public class MainController {
+    private static final Logger LOGGER = ApplicationLog.getLogger(MainController.class);
     private final Map<Integer, ToggleGroup> questionAnswerMapToggleGroupMap = new HashMap<>(this.getNoOfQuestion());
     String fileName;
     String directoryName = "response";
@@ -54,7 +57,7 @@ public class MainController {
     private volatile boolean stopTimer = false;
 
     public void initialize() {
-        fileName = directoryName + "/" + getName().replaceAll("[^a-zA-Z0-9]", "_").toLowerCase() + "-" + getHallTicketNo();
+        fileName = directoryName + "/" + getName().replaceAll("[^a-zA-Z0-9.]", "_").toLowerCase() + "-" + getHallTicketNo();
         remainingTimeLabel.setText(App.COUNTDOWN_IN_MIN + "m 0s");
         countdownTime = App.COUNTDOWN_IN_MIN;
         submitBtn.setOnAction(actionEvent -> submitBtnAction());
@@ -142,23 +145,35 @@ public class MainController {
         }
         jsonData = jsonData + "]}";
 
+        LOGGER.log(Level.INFO, () -> "Saving response to file: " + fileName + ".json");
+
+
         // try to create directory
         // if it exists then good to go.
         try {
             Files.createDirectory(Path.of(directoryName));
         } catch (FileAlreadyExistsException ignored) {
         } catch (Exception ex) {
+            LOGGER.log(Level.SEVERE, "Error creating directory.", ex);
             throw new GenericException(ex.getMessage());
         }
         try {
             Files.writeString(Paths.get(fileName + ".json"), jsonData);
-        } catch (IOException e) {
-            throw new GenericException(e.getMessage());
+        } catch (IOException ex) {
+            LOGGER.log(Level.SEVERE, "Error writing to file.", ex);
+            throw new GenericException(ex.getMessage());
         }
     }
 
     private void generateQrCodeAndDisplayOnUi() {
-        byte[] bytes = QrCodeUtil.createQR(jsonData, fileName + "-qrcode.jpeg", 400, 400);
+        LOGGER.log(Level.INFO, () -> "Saving QR code to file: " + fileName + ".jpeg");
+        byte[] bytes;
+        try {
+            bytes = QrCodeUtil.createQR(jsonData, fileName + ".jpeg", 400, 400);
+        } catch (Exception ex) {
+            LOGGER.log(Level.SEVERE, ex.getMessage(), ex);
+            return;
+        }
         qrCodeImageView.setImage(new Image(new ByteArrayInputStream(bytes)));
         mainContentHBox.getChildren().add(hiddenQrCodeHBox);
         generateQrCodeBtn.setDisable(true);
